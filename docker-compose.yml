@@ -1,0 +1,18 @@
+app:
+  build: .
+  command: /src/start.sh
+  volumes:
+    - .:/var/www:rw
+  links:
+    - mongo:db
+  volumes:
+    - .:/src/emqttd/rel/emqttd/plugins/emqttd_plugin_mongo
+  ports:
+    - "8083:8083"
+    - "1883:1883"
+    - "18083:18083"
+mongo:
+  image: mongo:3.0.4
+  ports:
+    - "27017:27017"
+  command: --smallfiles --rest

@@ -19,9 +19,9 @@
 
 -behaviour(emqttd_acl_mod).
 
--include("emqttd_plugin_mongo.hrl").
+-include_lib("emqttd_plugin_mongo.hrl").
 
--include("../../../include/emqttd.hrl").
+-include_lib("emqttd/include/emqttd.hrl").
 
 %% ACL callbacks
 -export([init/1, check_acl/2, reload_acl/1, description/0]).

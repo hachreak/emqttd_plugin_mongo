@@ -21,14 +21,14 @@
 
 -behaviour(emqttd_auth_mod).
 
--include("emqttd_plugin_mongo.hrl").
+-include_lib("emqttd_plugin_mongo.hrl").
 
--include("../../../include/emqttd.hrl").
+-include_lib("emqttd/include/emqttd.hrl").
 
 -export([init/1, check/3, description/0]).
 
 -record(state, {superquery, authquery}).
- 
+
 -define(EMPTY(Username), (Username =:= undefined orelse Username =:= <<>>)).
 
 init({SuperQuery, AuthQuery}) ->

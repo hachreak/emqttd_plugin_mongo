@@ -21,9 +21,9 @@
 
 -behaviour(ecpool_worker).
 
--include("emqttd_plugin_mongo.hrl").
+-include_lib("emqttd_plugin_mongo.hrl").
 
--include("../../../include/emqttd.hrl").
+-include_lib("emqttd/include/emqttd.hrl").
 
 -import(proplists, [get_value/3]).
 
@@ -101,7 +101,7 @@ fixopt([], Acc) ->
 
 fixopt([{login, Login} | Opts], Acc) when is_list(Login) ->
     fixopt(Opts, [{login, list_to_binary(Login)} | Acc]);
-    
+
 fixopt([{password, Passwd} | Opts], Acc) when is_list(Passwd) ->
     fixopt(Opts, [{password, list_to_binary(Passwd)} | Acc]);
 
